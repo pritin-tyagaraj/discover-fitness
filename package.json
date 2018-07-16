@@ -1,4 +1,7 @@
 {
   "private": true,
-  "workspaces": ["api", "ui"]
+  "workspaces": ["api", "ui"],
+  "scripts": {
+    "start": "node api/index.js"
+  }
 }

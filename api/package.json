@@ -10,6 +10,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "eslint": "^5.1.0"
+    "eslint": "^5.1.0",
+    "restify": "^7.2.1"
   }
 }
