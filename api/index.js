@@ -1,14 +1,11 @@
 const restify = require('restify')
+const registerRoutes = require('./helpers/register-routes')
+const routes = require('./routes')
 
 const port = process.env.PORT || 5000
 
-const respond = (req, res, next) => {
-  res.send('Tjena!')
-  next()
-}
-
 const server = restify.createServer()
-server.get('/', respond)
+registerRoutes(server, routes)
 server.listen(port, () => {
-  console.log('Listening...')
+  console.log(`Listening at ${server.url}...`)
 })
