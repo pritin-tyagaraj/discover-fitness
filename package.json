@@ -1,21 +1,7 @@
 {
   "private": true,
-  "workspaces": {
-    "packages": [
-      "api",
-      "ui",
-      "mobile-ui"
-    ],
-    "nohoist": [
-      "**/react-native/**",
-      "**/react-native",
-      "**/react-native-scripts",
-      "**/react-native-scripts/**",
-      "**/expo",
-      "**/expo/**"
-    ]
-  },
   "scripts": {
-    "start": "node api/index.js"
-  }
+    "start": "yarn nodemon api/index.js"
+  },
+  "devDependencies": {}
 }

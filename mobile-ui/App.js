@@ -1,24 +1,22 @@
-import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { createStackNavigator } from 'react-navigation'
+import { Dashboard, Profile } from './screens'
+
+const RootStack = createStackNavigator({
+  Dashboard: {
+    screen: Dashboard
+  },
+  Profile: {
+    screen: Profile
+  }
+}, {
+  initialRouteName: 'Dashboard'
+})
 
 export default class App extends React.Component {
-  render() {
+  render () {
     return (
-      <View style={styles.container}>
-        <Text>Tjena :-)</Text>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
+      <RootStack />
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

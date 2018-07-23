@@ -7,9 +7,12 @@
   "author": "Pritin Tyagaraj <pritin@live.com>",
   "license": "NA",
   "scripts": {
-    "start": "node index.js"
+    "start": "yarn nodemon ./index.js"
   },
   "dependencies": {
+    "mongoose": "^5.2.4",
+    "mongoose-timestamp": "^0.6.0",
+    "node-fetch": "^2.1.2",
     "restify": "^7.2.1"
   },
   "devDependencies": {
@@ -18,6 +21,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0"
+    "eslint-plugin-standard": "^3.1.0",
+    "nodemon": "^1.18.3"
   }
 }
