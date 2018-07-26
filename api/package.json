@@ -7,8 +7,7 @@
   "author": "Pritin Tyagaraj <pritin@live.com>",
   "license": "NA",
   "scripts": {
-    "dev": "yarn nodemon ./index.js",
-    "start": "node ./index.js"
+    "start": "yarn nodemon ./index.js"
   },
   "dependencies": {
     "jsonwebtoken": "^8.3.0",
