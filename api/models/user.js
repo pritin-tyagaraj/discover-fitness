@@ -1,4 +1,3 @@
-const config = require('../config')
 const fetch = require('node-fetch')
 const mongoose = require('mongoose')
 const timestamps = require('mongoose-timestamp')
@@ -13,9 +12,9 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.plugin(timestamps)
 
-UserSchema.statics.createFacebookUser = async function (facebookId) {
+UserSchema.statics.createFacebookUser = async function (facebookId, userAccessToken) {
   const queryResult = await fetch(`https://graph.facebook.com/${facebookId}` +
-    `?access_token=${config.auth.facebookAppToken}` +
+    `?access_token=${userAccessToken}` +
     `&fields=picture,id,first_name,last_name,email`)
   const userInfo = await queryResult.json()
 

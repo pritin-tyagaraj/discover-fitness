@@ -38,6 +38,16 @@ export default class Dashboard extends React.Component {
 
     // Try to log into (or register if first time user) our backend with the accessToken.
     console.log('ACCESS TOKEN!!', accessToken)
+    fetch('https://discover-fitness-dev.herokuapp.com/session', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        accessToken
+      })
+    })
   }
 }
 

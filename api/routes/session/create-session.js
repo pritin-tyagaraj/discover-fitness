@@ -12,7 +12,7 @@ const createSession = async (req, res, next) => {
 
   User.findOne({ facebookId: userId }, async (err, user) => {
     if (!user) {
-      await User.createFacebookUser(userId)
+      await User.createFacebookUser(userId, accessToken)
     }
     const session = createSessionId(userId)
     res.json(200, { session })
