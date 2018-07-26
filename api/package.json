@@ -10,6 +10,7 @@
     "start": "yarn nodemon ./index.js"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.4",
     "mongoose-timestamp": "^0.6.0",
     "node-fetch": "^2.1.2",

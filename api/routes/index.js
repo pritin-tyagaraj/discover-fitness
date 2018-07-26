@@ -8,6 +8,6 @@ module.exports = [
     pattern: '/',
     definition: getRoot
   },
-  ...require('./auth'),
+  ...require('./session'),
   ...require('./user')
 ]
