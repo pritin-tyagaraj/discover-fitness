@@ -3,7 +3,7 @@
   "scripts": {
     "start": "node api/index.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.4",
     "mongoose-timestamp": "^0.6.0",
