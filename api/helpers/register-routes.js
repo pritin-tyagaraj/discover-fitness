@@ -1,11 +1,11 @@
 const methodTypes = [
+  'del',
   'get',
   'head',
-  'post',
-  'put',
+  'opts',
   'patch',
-  'del',
-  'opts'
+  'post',
+  'put'
 ]
 
 const registerRoutes = (server, routes) => {

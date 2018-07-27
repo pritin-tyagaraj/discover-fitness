@@ -7,7 +7,8 @@
   "author": "Pritin Tyagaraj <pritin@live.com>",
   "license": "NA",
   "scripts": {
-    "start": "yarn nodemon ./index.js"
+    "start": "yarn nodemon ./index.js",
+    "test:unit": "jest --coverage"
   },
   "dependencies": {
     "jsonwebtoken": "^8.3.0",
@@ -20,9 +21,11 @@
     "eslint": "^5.1.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jest": "^21.18.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
+    "jest": "^23.4.1",
     "nodemon": "^1.18.3"
   }
 }

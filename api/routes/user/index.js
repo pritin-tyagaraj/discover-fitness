@@ -1,3 +1,3 @@
 module.exports = [
-  ...require('./created-groups')
+  ...require('./get-profile')
 ]
