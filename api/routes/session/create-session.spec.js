@@ -5,13 +5,18 @@ const User = require('../../models/user')
 
 let mockResponse
 let mockNext
+const mockUser = {
+  firstName: 'First Name',
+  lastName: 'Last Name',
+  profilePictureUrl: 'profile.picture.url'
+}
 
 jest.mock('./helpers/debug-token', () => ({
   debugFacebookToken: jest.fn()
 }))
 jest.mock('../../models/user', () => ({
   findOne: jest.fn(),
-  createFacebookUser: jest.fn()
+  createFacebookUser: jest.fn().mockImplementation(() => mockUser)
 }))
 jest.mock('./helpers/session-id', () => ({
   createSessionId: jest.fn().mockImplementation(() => 'session id')
@@ -67,12 +72,6 @@ describe('routes > session > #createSession', () => {
     })
 
     describe('when it is a first-time user', () => {
-      const mockRequest = {
-        body: {
-          accessToken: 'token'
-        }
-      }
-
       beforeEach(() => {
         User.findOne.mockImplementation((query) => ({
           exec: () => Promise.resolve(null)
@@ -86,20 +85,14 @@ describe('routes > session > #createSession', () => {
       it('should respond with HTTP 200 with a new session ID', async () => {
         await createSession(mockRequest, mockResponse, mockNext)
 
-        expect(createSessionId).toBeCalledWith('some user id')
+        expect(createSessionId).toBeCalledWith('some user id', 'First Name', 'Last Name', 'profile.picture.url')
         expect(mockResponse.json).toBeCalledWith(200, { session: 'session id' })
       })
     })
     describe('when it is a returning user', () => {
-      const mockRequest = {
-        body: {
-          accessToken: 'token'
-        }
-      }
-
       beforeEach(() => {
         User.findOne.mockImplementation((query) => ({
-          exec: () => Promise.resolve({ some: 'user' })
+          exec: () => Promise.resolve(mockUser)
         }))
       })
       it('should not try to create a new user', async () => {
@@ -110,7 +103,7 @@ describe('routes > session > #createSession', () => {
       it('should respond with HTTP 200 with a new session ID', async () => {
         await createSession(mockRequest, mockResponse, mockNext)
 
-        expect(createSessionId).toBeCalledWith('some user id')
+        expect(createSessionId).toBeCalledWith('some user id', 'First Name', 'Last Name', 'profile.picture.url')
         expect(mockResponse.json).toBeCalledWith(200, { session: 'session id' })
       })
     })

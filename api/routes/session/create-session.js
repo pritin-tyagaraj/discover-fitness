@@ -15,11 +15,11 @@ const createSession = async (req, res, next) => {
     return next()
   }
 
-  const foundUser = await User.findOne({ facebookId: userId }).exec()
-  if (!foundUser) {
-    await User.createFacebookUser(userId, accessToken)
+  let user = await User.findOne({ facebookId: userId }).exec()
+  if (!user) {
+    user = await User.createFacebookUser(userId, accessToken)
   }
-  const session = createSessionId(userId)
+  const session = createSessionId(userId, user.firstName, user.lastName, user.profilePictureUrl)
   res.json(200, { session })
   return next()
 }

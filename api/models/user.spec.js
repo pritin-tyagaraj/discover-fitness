@@ -41,5 +41,15 @@ describe('models > User', () => {
         facebookId: 'facebookId'
       })
     })
+    it('should return basic information about the user', async () => {
+      const mockModel = getMockModelConstructor()
+      const result = await User.createFacebookUser.call(mockModel, 'facebookId', 'facebookUserAccessToken')
+
+      expect(result).toEqual({
+        firstName: 'First Name',
+        lastName: 'Last Name',
+        profilePictureUrl: 'profile.picture.url'
+      })
+    })
   })
 })

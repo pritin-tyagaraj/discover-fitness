@@ -30,6 +30,8 @@ UserSchema.statics.createFacebookUser = async function (facebookId, userAccessTo
   } = userInfo
   const newUser = new this({ email, firstName, lastName, profilePictureUrl, facebookId })
   newUser.save()
+
+  return { firstName, lastName, profilePictureUrl }
 }
 
 const User = mongoose.model('User', UserSchema)
