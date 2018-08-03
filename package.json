@@ -4,10 +4,15 @@
     "start": "node api/index.js"
   },
   "dependencies": {
+    "cross-fetch": "^2.2.2",
     "jsonwebtoken": "^8.3.0",
+    "jwt-decode": "^2.2.0",
     "mongoose": "^5.2.4",
     "mongoose-timestamp": "^0.6.0",
+    "native-base": "^2.7.2",
     "node-fetch": "^2.1.2",
+    "react-redux": "^5.0.7",
+    "redux-thunk": "^2.3.0",
     "restify": "^7.2.1"
   }
 }

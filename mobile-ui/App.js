@@ -1,6 +1,17 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
 import { Dashboard, Profile } from './screens'
+import { Provider } from 'react-redux'
+import { applyMiddleware, createStore } from 'redux'
+import rootReducer from './reducers'
+import thunkMiddleware from 'redux-thunk'
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(
+    thunkMiddleware
+  )
+)
 
 const RootStack = createStackNavigator({
   Dashboard: {
@@ -10,13 +21,16 @@ const RootStack = createStackNavigator({
     screen: Profile
   }
 }, {
-  initialRouteName: 'Dashboard'
+  initialRouteName: 'Dashboard',
+  headerMode: 'none'
 })
 
 export default class App extends React.Component {
   render () {
     return (
-      <RootStack />
+      <Provider store={store}>
+        <RootStack />
+      </Provider>
     )
   }
 }

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screens > dashboard > map-state-to-props should behave OK 1`] = `
+Object {
+  "user": Object {
+    "displayName": "FirstName",
+    "isLoggedIn": true,
+    "profilePictureUrl": "profile.picture.url",
+  },
+}
+`;

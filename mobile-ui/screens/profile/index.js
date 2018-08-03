@@ -8,7 +8,7 @@ export default class GroupsList extends React.Component {
         <Text>Groups List</Text>
         <Button
           title='Go to another page'
-          onPress={() => this.props.navigation.goBack()}
+            onPress={() => this.props.navigation.goBack()}
         />
       </View>
     )
