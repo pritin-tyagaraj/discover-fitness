@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000
 
 const server = restify.createServer()
 
+server.use(restifyPlugins.queryParser())
 server.use(restifyPlugins.bodyParser({
   mapParams: true
 }))

@@ -5,7 +5,7 @@ const createSessionId = (userId, firstName, lastName, profilePictureUrl) => jwt.
   firstName,
   lastName,
   profilePictureUrl,
-  sessionFor: userId
+  userId
 }, config.auth.jwtSecret, {
   expiresIn: config.auth.jwtExpiresIn
 })

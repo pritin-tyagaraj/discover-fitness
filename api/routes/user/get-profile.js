@@ -1,5 +1,21 @@
-const getUserProfile = (req, res, next) => {
-  res.json('GET USER PROFILE')
+const jwt = require('jsonwebtoken')
+const User = require('../../models/user')
+
+const getUserProfile = async (req, res, next) => {
+  const sessionId = req.query.sessionId
+  if (!sessionId) {
+    res.json(400, { error: '`sessionId` missing in payload' })
+    return next()
+  }
+
+  const decodedSessionId = jwt.decode(sessionId)
+  const user = await User.findOne({ facebookId: decodedSessionId.userId }).exec()
+  res.json(200, {
+    firstName: user.firstName,
+    lastName: user.lastName,
+    profilePictureUrl: user.profilePictureUrl
+  }) // TODO: Handle failure cases
+  return next()
 }
 
 module.exports = [{

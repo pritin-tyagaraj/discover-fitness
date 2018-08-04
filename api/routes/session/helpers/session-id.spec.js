@@ -18,7 +18,7 @@ describe('routes > session > helpers > session-id', () => {
       createSessionId('some user id', 'First Name', 'Last Name', 'profile.picture.url')
 
       expect(jwt.sign).toHaveBeenCalledWith({
-        sessionFor: 'some user id',
+        userId: 'some user id',
         firstName: 'First Name',
         lastName: 'Last Name',
         profilePictureUrl: 'profile.picture.url'
