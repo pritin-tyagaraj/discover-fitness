@@ -1,8 +1,8 @@
 import * as actions from './actions'
-import fetch from '../../utils/fetch'
+import fetch from '../helpers/fetch'
 import jwtDecode from 'jwt-decode'
 
-jest.mock('../../utils/fetch', () => jest.fn().mockReturnValue(
+jest.mock('../helpers/fetch', () => jest.fn().mockReturnValue(
   Promise.resolve({
     json: () => ({
       session: 'SESSION ID'

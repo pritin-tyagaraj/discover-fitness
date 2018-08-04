@@ -6,7 +6,7 @@ jest.mock('../../config', () => ({
   backendBaseUrl: 'BACKEND'
 }))
 
-describe('utils > #fetch', () => {
+describe('helpers > #fetch', () => {
   it('should call cross-fetch with fallback values when only path is provided', () => {
     fetch({ path: '/path' })
 
@@ -14,8 +14,7 @@ describe('utils > #fetch', () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
-      },
-      body: '{}'
+      }
     })
   })
   it('should not use fallback values when other parameters are provided', () => {

@@ -1,9 +1,12 @@
 import {
+  LOADING,
   START_LOGIN,
-  HANDLE_LOGIN_RESPONSE
+  HANDLE_LOGIN_RESPONSE,
+  HANDLE_GET_USER_PROFILE_RESPONSE
 } from './actions'
 
 const initialState = {
+  loading: false,
   user: {
     isLoggingIn: false,
     isLoggedIn: false,
@@ -12,9 +15,17 @@ const initialState = {
   }
 }
 
+// TODO: Reorganize reducer to handle both 'app' and 'user' sections of store
 const dashboardReducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOADING:
+      return {
+        ...state,
+        loading: action.payload.isLoading
+      }
+
     case START_LOGIN:
+      // TODO: Also handle START_GET_USER_PROFILE
       return {
         ...state,
         user: {
@@ -34,6 +45,18 @@ const dashboardReducer = (state = initialState, action) => {
           firstName: success ? action.payload.decodedSessionId.firstName : '',
           lastName: success ? action.payload.decodedSessionId.lastName : '',
           profilePictureUrl: success ? action.payload.decodedSessionId.profilePictureUrl : ''
+        }
+      }
+
+    case HANDLE_GET_USER_PROFILE_RESPONSE:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          isLoggedIn: true,
+          firstName: action.payload.firstName,
+          lastName: action.payload.lastName,
+          profilePictureUrl: action.payload.profilePictureUrl
         }
       }
 

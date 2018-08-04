@@ -1,10 +1,10 @@
-import * as selectors from './selectors'
+import * as appSelectors from '../../app/selectors'
 
 const mapStateToProps = (state) => ({
   user: {
-    isLoggedIn: selectors.isUserLoggedIn(state),
-    displayName: selectors.getCurrentUserDisplayName(state),
-    profilePictureUrl: selectors.getCurrentUserProfilePictureUrl(state)
+    isLoggedIn: appSelectors.isUserLoggedIn(state),
+    displayName: appSelectors.getCurrentUserDisplayName(state),
+    profilePictureUrl: appSelectors.getCurrentUserProfilePictureUrl(state)
   }
 })
 

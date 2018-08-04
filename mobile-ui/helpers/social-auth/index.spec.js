@@ -16,7 +16,7 @@ jest.mock('../../config', () => ({
   facebookAppId: 'FACEBOOK APP ID'
 }))
 
-describe('utils > social-auth', () => {
+describe('helpers > social-auth', () => {
   describe('facebook > #startLoginFlow', () => {
     it('should configure `AuthSession` with the expected URL', async () => {
       await startLoginFlow()
