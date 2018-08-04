@@ -37,7 +37,7 @@ describe('models > User', () => {
         email: 'email@email.com',
         firstName: 'First Name',
         lastName: 'Last Name',
-        profilePictureUrl: 'profile.picture.url',
+        profilePictureUrl: 'https://graph.facebook.com/facebookId/picture?width=130&height=130',
         facebookId: 'facebookId'
       })
     })
@@ -48,7 +48,7 @@ describe('models > User', () => {
       expect(result).toEqual({
         firstName: 'First Name',
         lastName: 'Last Name',
-        profilePictureUrl: 'profile.picture.url'
+        profilePictureUrl: 'https://graph.facebook.com/facebookId/picture?width=130&height=130'
       })
     })
   })

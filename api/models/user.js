@@ -21,13 +21,10 @@ UserSchema.statics.createFacebookUser = async function (facebookId, userAccessTo
   const {
     first_name: firstName,
     last_name: lastName,
-    email,
-    picture: {
-      data: {
-        url: profilePictureUrl
-      }
-    }
+    email
   } = userInfo
+  const profilePictureUrl = `https://graph.facebook.com/${facebookId}/picture?width=130&height=130`
+
   const newUser = new this({ email, firstName, lastName, profilePictureUrl, facebookId })
   newUser.save()
 
