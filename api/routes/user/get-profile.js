@@ -9,7 +9,9 @@ const getUserProfile = async (req, res, next) => {
   }
 
   const decodedSessionId = jwt.decode(sessionId)
+  console.log('>>>> Looking for', decodedSessionId.userId)
   const user = await User.findOne({ facebookId: decodedSessionId.userId }).exec()
+  console.log('>>>> Found ', user)
   res.json(200, {
     firstName: user.firstName,
     lastName: user.lastName,
