@@ -35,7 +35,6 @@ export default class App extends React.Component {
   }
 
   render () {
-    // TODO: Dispatch 'READY' action here, instead of dashboard
     return (
       <Provider store={store}>
         <RootStack />

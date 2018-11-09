@@ -21,7 +21,7 @@ const dashboardReducer = (state = initialState, action) => {
     case LOADING:
       return {
         ...state,
-        loading: action.payload.isLoading
+        loading: action.payload
       }
 
     case START_LOGIN:

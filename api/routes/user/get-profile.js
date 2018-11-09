@@ -14,7 +14,7 @@ const getUserProfile = async (req, res, next) => {
     firstName: user.firstName,
     lastName: user.lastName,
     profilePictureUrl: user.profilePictureUrl
-  }) // TODO: Handle failure cases
+  })
   return next()
 }
 

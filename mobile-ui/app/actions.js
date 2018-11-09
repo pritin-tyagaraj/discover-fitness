@@ -1,5 +1,6 @@
 import fetch from '../helpers/fetch'
 import jwtDecode from 'jwt-decode'
+import { createAction } from 'redux-actions'
 
 export const READY = 'READY'
 export const LOADING = 'LOADING'
@@ -8,43 +9,13 @@ export const HANDLE_LOGIN_RESPONSE = 'HANDLE_LOGIN_RESPONSE'
 export const START_GET_USER_PROFILE = 'START_GET_USER_PROFILE'
 export const HANDLE_GET_USER_PROFILE_RESPONSE = 'HANDLE_GET_USER_PROFILE_RESPONSE'
 
-function startLogin () {
-  return {
-    type: START_LOGIN
-  }
-}
+const startLogin = createAction(START_LOGIN)
+const handleLoginResponse = createAction(HANDLE_LOGIN_RESPONSE)
+const startGetUserProfile = createAction(START_GET_USER_PROFILE)
+const handleGetUserProfileResponse = createAction(HANDLE_GET_USER_PROFILE_RESPONSE)
 
-function handleLoginResponse (data) {
-  return {
-    type: HANDLE_LOGIN_RESPONSE,
-    payload: data
-  }
-}
-
-function startGetUserProfile () {
-  return {
-    type: START_GET_USER_PROFILE
-  }
-}
-
-// TODO: Use create-action util
-function handleGetUserProfileResponse (data) {
-  return {
-    type: HANDLE_GET_USER_PROFILE_RESPONSE,
-    payload: data
-  }
-}
-
-export const ready = () => ({
-  type: READY
-})
-
-export const loading = (isLoading) => ({
-  type: LOADING,
-  payload: {
-    isLoading
-  }
-})
+export const ready = createAction(READY)
+export const loading = createAction(LOADING) // TODO: Tests missing
 
 export const login = (accessToken) => async (dispatch) => {
   dispatch(startLogin())

@@ -13,5 +13,3 @@ export const setStoredSessionId = (sessionId) => {
 export const removeStoredSessionId = () => {
   return SecureStore.deleteItemAsync('sessionId')
 }
-
-// TODO: Add tests
